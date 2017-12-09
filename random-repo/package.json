@@ -1,0 +1,19 @@
+{
+  "name": "insomnia-plugin-random-repo",
+  "version": "0.0.0",
+  "main": "index.js",
+  "insomnia": {
+    "name": "random-repo",
+    "description": "Get the name of a random repo from GitHub"
+  },
+  "dependencies": {
+    "request-promise-native": "^1.0.5"
+  },
+  "keywords": [
+    "insomnia",
+    "plugin",
+    "github",
+    "random",
+    "repo"
+  ]
+}
