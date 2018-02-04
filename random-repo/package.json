@@ -2,11 +2,14 @@
   "name": "insomnia-plugin-random-repo",
   "version": "0.0.0",
   "main": "index.js",
+  "license": "UNLICENSED",
   "insomnia": {
     "name": "random-repo",
     "description": "Get the name of a random repo from GitHub"
   },
   "dependencies": {
+    "bower": "^1.8.2",
+    "pulp": "^12.0.1",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
   },
