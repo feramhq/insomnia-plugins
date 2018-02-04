@@ -5,6 +5,9 @@ Plugins for [insomnia] implemented with JavaScript and PureScript.
 [insomnia]: https://insomnia.rest
 
 
+**Attention:** After changing a plugin, Insomnia must be reloaded!
+
+
 ## Activation
 
 1. Make sure the cli tool `bower` is installed:

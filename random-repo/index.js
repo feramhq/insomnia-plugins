@@ -43,6 +43,17 @@ templateTags[0].run = async function (context, token, queryString) {
     throw new Error(`Request timed out after ${numberOfRetries} retries`)
   }
 
+  // Uncomment following code during development
+  //
+  // const fs = require('fs')
+  // const path = require('path')
+  // const util = require('util')
+  //
+  // fs.appendFileSync(
+  //   path.join(__dirname, 'queries.log'),
+  //   util.inspect(searchObject, {depth: 0, colors: true})
+  // )
+
   const selectedRepo = sample(searchObject.items)
 
   return selectedRepo.full_name

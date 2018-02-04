@@ -10,6 +10,7 @@ import Data.List.Types
 import Data.Maybe (fromMaybe)
 import Data.Ring ((-))
 import Data.Semigroup ((<>))
+import Data.Semiring ((*))
 import Data.Show (class Show, show)
 import Data.String (null)
 import Data.Time.Duration (Milliseconds(..))
@@ -102,10 +103,12 @@ getQueryObject queryString maxStars now =
       : Fmt.SecondsTwoDigits
       : empty
 
-    hour = Milliseconds 3600000.0
-    nowInstant = toDateTime $ fromMaybe bottom (instant now)
+    msPerHour = 3600000.0
+    shortDur = Milliseconds (5.0 * msPerHour)
+    longDur = Milliseconds (6.0 * msPerHour)
+    nowInstant = toDateTime $ fromMaybe bottom (instant (now - shortDur))
     earlierInstant =  toDateTime
-      $ fromMaybe bottom $ instant $ now - hour
+      $ fromMaybe bottom $ instant $ now - longDur
 
     queryStringTemp = if null queryString
       then
@@ -119,7 +122,9 @@ getQueryObject queryString maxStars now =
     { q: queryStringTemp
     , sort: "updated"
     , order: "desc"
-    , per_page: 1
+    -- GitHub does not support searching for a random repo
+    -- therefore get several and randomly pick one
+    , per_page: 100
     }
 
 
