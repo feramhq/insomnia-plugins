@@ -3,8 +3,8 @@ all: random-repo/output/Main/index.js
 
 %/output/Main/index.js: %/src/Main.purs
 	cd $* && \
-		bower install && \
-		pulp build
+		yarn bower install && \
+		yarn pulp build
 
 
 .PHONY: clean
