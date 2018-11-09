@@ -4,7 +4,7 @@ exports.fetchImpl = function (options, done, fail) {
   return function () {
     request(
       options,
-      function (error, _, body) {
+      (error, _, body) => {
         if (error) fail(error)()
         else done(body)()
       }
